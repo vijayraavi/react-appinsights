@@ -12,8 +12,8 @@ export const ReactAI = {
     AppInsightsUsage.init(appInsightsOptions);
 
     if (history) {
-      history.listen((_location, _action) => {
-        AppInsights.trackPageView();
+      history.listen((location, _) => {
+        AppInsights.trackPageView(location.pathname.substr(1));
       });
     }
 
